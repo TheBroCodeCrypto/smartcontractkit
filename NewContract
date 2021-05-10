@@ -418,7 +418,7 @@ contract Ownable is Context {
 
 
 
-contract RichieRICH is Context, IERC20, Ownable {
+contract TheBroCode is Context, IERC20, Ownable {
     using SafeMath for uint256;
     using Address for address;
 
@@ -430,13 +430,13 @@ contract RichieRICH is Context, IERC20, Ownable {
     address[] private _excluded;
    
     uint256 private constant MAX = ~uint256(0);
-    uint256 private constant _tTotal = 100000 * 10**6 * 10**9;
+    uint256 private constant _tTotal = 100000 * 10**6 * 10**12;
     uint256 private _rTotal = (MAX - (MAX % _tTotal));
     uint256 private _tFeeTotal;
 
     string private _name = 'TheBroCode';
     string private _symbol = 'BRO';
-    uint8 private _decimals = 9;
+    uint8 private _decimals = 12;
 
     constructor () {
         _rOwned[_msgSender()] = _rTotal;
@@ -624,7 +624,7 @@ contract RichieRICH is Context, IERC20, Ownable {
     }
 
     function _getTValues(uint256 tAmount) private pure returns (uint256, uint256) {
-        uint256 tFee = tAmount.div(100).mul(8);
+        uint256 tFee = tAmount.div(100).mul(10);
         uint256 tTransferAmount = tAmount.sub(tFee);
         return (tTransferAmount, tFee);
     }
